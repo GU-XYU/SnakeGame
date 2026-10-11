@@ -42,5 +42,3 @@ int findsnake(int x, int y, const snake* head) {
 
 	return 0;
 }
-
-void movesnake()

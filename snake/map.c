@@ -2,14 +2,10 @@
 #include <stdio.h>
 #include "snake.h"
 
-void drawmap(int x, int y) {
-	snake* head = NULL;
-	snake* tail = NULL;
-	snakeinit(3, y, x, &head, &tail);
+void drawmap(int x, int y, const snake* snakehead) {
 	for (int h = 0; h < y; h++) {
-
 		for (int w = 0; w < x; w++) {
-			if (findsnake(w, h, head)) printf("O");
+			if (findsnake(w, h, snakehead)) printf("O");
 			else if(h == 0 || h == y-1 || w == 0 || w == x-1) printf("#");
 			else printf(" ");
 		}

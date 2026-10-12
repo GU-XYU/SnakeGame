@@ -21,12 +21,10 @@
   <ItemGroup>
     <ClCompile Include="main.c" />
     <ClCompile Include="map.c" />
-    <ClCompile Include="over.c" />
     <ClCompile Include="snake.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="map.h" />
-    <ClInclude Include="over.h" />
     <ClInclude Include="snake.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

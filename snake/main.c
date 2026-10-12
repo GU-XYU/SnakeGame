@@ -4,7 +4,7 @@
 
 int main(void) {
 	int x, y;
-	scanf("%d %d", &x, &y);
+	scanf("%d %d", &x, &y);    //输入地图大小
 	snake *snakehead = NULL, *snaketail = NULL;
 	snakeinit(3, y, x, &snakehead, &snaketail);
 	drawmap(x, y, snakehead);

@@ -4,7 +4,6 @@
 #include <stdlib.h>
 
 typedef struct snake {
-	struct snake* prev;
 	int x;
 	int y;
 	struct snake* next;

@@ -65,7 +65,7 @@ void movesnake(char mf, int eat, snake** snakehead, snake** snaketail) {  //eatä
 			snake* newnode = malloc(sizeof(snake));
 			if (!newnode) return;
 			newnode->x = (*snakehead)->x;
-			newnode->y = (*snakehead)->y + 1;
+			newnode->y = (*snakehead)->y - 1;
 			newnode->next = *snakehead;
 			*snakehead = newnode;
 			if (eat == 0) {
@@ -81,7 +81,7 @@ void movesnake(char mf, int eat, snake** snakehead, snake** snaketail) {  //eatä
 			snake* newnode = malloc(sizeof(snake));
 			if (!newnode) return;
 			newnode->x = (*snakehead)->x;
-			newnode->y = (*snakehead)->y - 1;
+			newnode->y = (*snakehead)->y + 1;
 			newnode->next = *snakehead;
 			*snakehead = newnode;
 			if (eat == 0) {

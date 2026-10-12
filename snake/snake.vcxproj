@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="main.c" />
     <ClCompile Include="map.c" />
+    <ClCompile Include="over.c" />
     <ClCompile Include="snake.c" />
   </ItemGroup>
   <ItemGroup>

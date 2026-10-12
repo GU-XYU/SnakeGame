@@ -1,6 +1,6 @@
 #include "snake.h"
 
-void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {  //l长度，hw地图大小
+void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {
 	
 	snake* tail = NULL;
 	snake* head = NULL;
@@ -8,8 +8,8 @@ void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {  //l
 	for (int i = 0; i < l; i++) {
 
 		snake* newnode = malloc(sizeof(snake));
-		if (newnode == NULL) {
-			printf_s("error %d", i);
+		if (newnode == NULL) {               //查看malloc是否成功
+			printf_s("error %d", i);         //打印成功创建了多少节蛇
 			*snaketail = tail;
 			*snakehead = head;
 			return;
@@ -19,13 +19,13 @@ void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {  //l
 		newnode->y = (int)(h / 2);
 		newnode->next = NULL;
 
-		if (head == NULL) {
+		if (head == NULL) {           //没有蛇头时newnode就是蛇头
 			head = newnode;
 			tail = newnode;
 		}
 		else {
-			tail->next = newnode;
-			tail = newnode;
+			tail->next = newnode;     ////这里有严重bug!!!!!!!!!!
+			tail = newnode;           ////这里有严重bug!!!!!!!!!!
 		}
 	}
 	*snaketail = tail;
@@ -33,7 +33,7 @@ void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {  //l
 	return;
 }
 
-int findsnake(int x, int y, const snake* head) {  //检查当前xy值位置是否为蛇
+int findsnake(int x, int y, const snake* head) {
 
 	while (head != NULL) {
 		if (head->x == x && head->y == y) return 1;
@@ -43,7 +43,7 @@ int findsnake(int x, int y, const snake* head) {  //检查当前xy值位置是�
 	return 0;
 }
 
-void findtail(snake** snakehead, snake** snaketail, snake** prevnode) {  //进 findtail 时至少有 2 个节点
+void findtail(snake** snakehead, snake** snaketail, snake** prevnode) {
 	snake* head = *snakehead;
 	snake* temp = NULL;
 	if (head->next == NULL) *snaketail = *snakehead;
@@ -58,22 +58,21 @@ void findtail(snake** snakehead, snake** snaketail, snake** prevnode) {  //进 f
 	return;
 }
 
-void movesnake(char mf, int eat, snake** snakehead, snake** snaketail) {  //eat为蛇进食状态，1为食用，0为未食用。mf为蛇前进方向WASD
+void movesnake(char mf, int eat, snake** snakehead, snake** snaketail) {
 	snake* prevnode = NULL;
 	switch (mf) {
 		case 'W': {
-			snake* newnode = malloc(sizeof(snake));
+			snake* newnode = malloc(sizeof(snake));     //头插法 创建一个newnoode
 			if (!newnode) return;
-			newnode->x = (*snakehead)->x;
+			newnode->x = (*snakehead)->x;               //定义xy坐标
 			newnode->y = (*snakehead)->y - 1;
-			newnode->next = *snakehead;
-			*snakehead = newnode;
-			if (eat == 0) {
+			newnode->next = *snakehead;                 //将next接到原先的蛇头上
+			*snakehead = newnode;                       //更新蛇头指针
+			if (eat == 0) {        //如果没吃到就free最后一个node
 				findtail(snakehead, snaketail, &prevnode);
 				prevnode->next = NULL;
 				free(*snaketail);
 				*snaketail = prevnode;
-				break;
 			}
 			break;
 		}
@@ -89,7 +88,6 @@ void movesnake(char mf, int eat, snake** snakehead, snake** snaketail) {  //eat�
 				prevnode->next = NULL;
 				free(*snaketail);
 				*snaketail = prevnode;
-				break;
 			}
 			break;
 		}
@@ -105,7 +103,6 @@ void movesnake(char mf, int eat, snake** snakehead, snake** snaketail) {  //eat�
 				prevnode->next = NULL;
 				free(*snaketail);
 				*snaketail = prevnode;
-				break;
 			}
 			break;
 		}
@@ -121,7 +118,6 @@ void movesnake(char mf, int eat, snake** snakehead, snake** snaketail) {  //eat�
 				prevnode->next = NULL;
 				free(*snaketail);
 				*snaketail = prevnode;
-				break;
 			}
 			break;
 		}

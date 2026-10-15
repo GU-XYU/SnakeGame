@@ -1,6 +1,6 @@
 #include "snake.h"
 
-void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {
+void snakeinit(int l, int x, int y, snake** snakehead, snake** snaketail) {
 	
 	snake* tail = NULL;
 	snake* head = NULL;
@@ -15,8 +15,8 @@ void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {
 			return;
 		}
 
-		newnode->x = (int)(w / 2) + i;
-		newnode->y = (int)(h / 2);
+		newnode->x = (int)(x / 2) + i;
+		newnode->y = (int)(y / 2);
 		newnode->next = NULL;
 
 		if (head == NULL) {           //没有蛇头时newnode就是蛇头
@@ -33,7 +33,7 @@ void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail) {
 	return;
 }
 
-int findsnake(int x, int y, const snake* head) {
+int issnake(int x, int y, const snake* head) {
 
 	while (head != NULL) {
 		if (head->x == x && head->y == y) return 1;

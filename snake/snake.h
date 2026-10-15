@@ -10,10 +10,10 @@ typedef struct snake {
 }snake;
 
 //检查当前xy值位置是否为蛇
-int findsnake(int x, int y, const snake* head);
+int issnake(int x, int y, const snake* head);
 
 //l长度 hw地图大小
-void snakeinit(int l, int h, int w, snake** snakehead, snake** snaketail);
+void snakeinit(int l, int x, int y, snake** snakehead, snake** snaketail);
 
 //找最后一个节点和倒二 进 findtail 时至少有 2 个节点
 void findtail(snake** snakehead, snake** snaketail, snake** prevnode);

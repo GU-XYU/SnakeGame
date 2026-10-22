@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS
 #include "snake.h"
 
 void snakeinit(int l, int x, int y, snake** snakehead, snake** snaketail) {
@@ -9,7 +10,7 @@ void snakeinit(int l, int x, int y, snake** snakehead, snake** snaketail) {
 
 		snake* newnode = malloc(sizeof(snake));
 		if (newnode == NULL) {               //查看malloc是否成功
-			printf_s("error %d", i);         //打印成功创建了多少节蛇
+			printf("error %d", i);         //打印成功创建了多少节蛇
 			*snaketail = tail;
 			*snakehead = head;
 			return;
@@ -24,8 +25,8 @@ void snakeinit(int l, int x, int y, snake** snakehead, snake** snaketail) {
 			tail = newnode;
 		}
 		else {
-			tail->next = newnode;     ////这里有严重bug!!!!!!!!!!
-			tail = newnode;           ////这里有严重bug!!!!!!!!!!
+			tail->next = newnode;
+			tail = newnode;
 		}
 	}
 	*snaketail = tail;

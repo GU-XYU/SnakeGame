@@ -19,7 +19,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="all.c" />
     <ClCompile Include="food.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="map.c" />

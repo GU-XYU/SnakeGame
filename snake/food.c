@@ -1,12 +1,14 @@
 #include "food.h"
 #include "snake.h"
+
 void initfood(int x, int y, point** foodpoint) {
 	if (*foodpoint == NULL) {
 		*foodpoint = malloc(sizeof(point));
 		if (*foodpoint == NULL) return;
 	}
-	(*foodpoint)->x = rand() % x;
-	(*foodpoint)->y = rand() % y;
+	(*foodpoint)->x = 1 + rand() % (x - 2);
+	(*foodpoint)->y = 1 + rand() % (y - 2);
+
 }
 
 int isfood(int x, int y, const point* foodpoint) {

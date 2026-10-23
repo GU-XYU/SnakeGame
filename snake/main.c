@@ -10,7 +10,7 @@ int main(void) {
 	system("chcp 936 > nul");
 	int x, y;
 	char keyboardinput = 'A';
-	printf("游戏时全屏窗口\n输入地图大小，例160 50");
+	printf("MAP SIZE ,SUCH AS:160 50\n");
 	scanf("%d %d", &x, &y);    //输入地图大小
 	while (getchar() != '\n');
 	snake *snakehead = NULL, *snaketail = NULL;
